@@ -4,15 +4,18 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Vibrator
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var previousTextView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        previousTextView = findViewById(R.id.previousTextView)
 
         //Numbers
 
@@ -64,23 +67,23 @@ class MainActivity : AppCompatActivity() {
         //Operators
 
         plusTextView.setOnClickListener {
-            putOnPreviousView("+", false)
+            operator('+')
             vibrate()
         }
         minusTextView.setOnClickListener {
-            putOnPreviousView("-", false)
+            operator('-')
             vibrate()
         }
         multiplyTextView.setOnClickListener {
-            putOnPreviousView("*", false)
+            operator('*')
             vibrate()
         }
         divideTextView.setOnClickListener {
-            putOnPreviousView("/", false)
+            operator('/')
             vibrate()
         }
         percentageTextView.setOnClickListener {
-            putOnPreviousView("%", false)
+            operator('%')
             vibrate()
         }
 
@@ -117,6 +120,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    // Method to put on operators
+
+    private fun operator(op : Char)
+    {
+        if (previousTextView.text.isEmpty())
+            previousTextView.text = "0"
+        else if (op != previousTextView.text.last()) {
+            val last = previousTextView.text.lastIndex
+            if (previousTextView.text[last] in '0'..'9')  putOnPreviousView(op.toString(),false)
+            else {
+                previousTextView.text = previousTextView.text.dropLast(1)
+                putOnPreviousView(op.toString(),false)
+            }
+        }
+    }
+
     // Method to put button on vibrate when clicked
 
     private fun vibrate() {
