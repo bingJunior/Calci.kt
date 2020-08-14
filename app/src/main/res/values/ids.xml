@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="minusTextView" type="id" />
+    <item name="resultTextView" type="id" />
+    <item name="previousTextView" type="id" />
+    <item name="plusTextView" type="id" />
+    <item name="multiplyTextView" type="id" />
+    <item name="divideTextView" type="id" />
+    <item name="twoTextView" type="id" />
+    <item name="threeTextView" type="id" />
+    <item name="oneTextView" type="id" />
+    <item name="nineTextView" type="id" />
+    <item name="zeroTextView" type="id" />
+    <item name="equalsTextView" type="id" />
+    <item name="eightTextView" type="id" />
+    <item name="ccTextView" type="id" />
+    <item name="pointTextView" type="id" />
+    <item name="sevenTextView" type="id" />
+    <item name="percentageTextView" type="id" />
+    <item name="sixTextView" type="id" />
+    <item name="fiveTextView" type="id" />
+    <item name="fourTextView" type="id" />
+    <item name="clearTextView" type="id" />
+</resources>
